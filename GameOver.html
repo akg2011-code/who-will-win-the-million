@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        @font-face {
+            font-family: myFont;
+            src: url(A-Hayat.ttf);
+        }
+
+        body {
+            background-image: url(sources/image.jpeg);
+            background-size: cover;
+            filter: brightness(100%);
+            font-family: myFont;
+            font-size: larger;
+        }
+
+        #check {
+            width: 500px;
+            height: 300px;
+            background-image: url(sources/check.jpg);
+            margin-left: 32%;
+            margin-top: 5%;
+            border: rgb(255, 255, 255) 1px outset;
+            animation-name: myBorder;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes myBorder {
+            0% {
+                box-shadow: 2px 1px 11px white;
+            }
+
+            25% {
+                box-shadow: 5px 2px 22px white;
+            }
+
+            50% {
+                box-shadow: 10px 5px 32px white;
+            }
+
+            100% {
+                box-shadow: 15px 10px 42px white;
+            }
+        }
+
+        h3 {
+            text-align: right;
+            padding-right: 23%;
+            padding-top: 5%;
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+
+        a {
+        background-color: #167DBA;  
+        border-radius: 5px;
+        color: #090C15;
+        padding: .1em .3em;
+        text-decoration: none;
+        font-size: 40px;
+        }
+
+        a:focus,
+        a:hover {
+        background-color: #090C15;
+        color: white;
+        }
+    </style>
+</head>
+
+<body onload="End()">
+    <div style="text-align :center; color: white; font-size: 70px;">
+        <p style=" padding-top:20px; margin: 0; ">انتهت اللعبة</p>
+        <a href="intro.html">لعبة جديدة</a>
+    </div>
+    <div id="check">
+        <h3 id="username"></h3>
+        <h3 id="prize"></h3>
+        <h3 id="dateNow"></h3>
+    </div>
+    <audio id="end">
+        <source src="sources\end.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+
+        // display name by Muhammad Essam
+        document.getElementById("username").innerText = getQueryVariable("playerName");
+        /////display date by Ahmed Korany
+        var m = new Date();
+        var dateString =
+            m.getUTCFullYear() + " / " +
+            ("0" + (m.getUTCMonth() + 1)).slice(-2) + " / " +
+            ("0" + m.getUTCDate()).slice(-2);
+        document.getElementById("dateNow").innerHTML = dateString;
+    
+        //////audio of end
+        function End() {
+            var audio = document.getElementById("end");
+            var isPlaying = audio.currentTime > 0 && !audio.paused && !audio.ended
+                && audio.readyState > 2;
+            if (!isPlaying) {
+                audio.play();
+            }
+        }
+
+        //////////display points
+        var currentQuestion = parseInt(getQueryVariable("currentQuestion"));
+        if ((currentQuestion < 15) && (currentQuestion > 9)) {
+
+            document.getElementById("prize").innerHTML = (`اثنان وثلاثين الف  ريال سعودي فقط لا غير - 32,000`);
+        }
+        else if ((currentQuestion < 10) && (currentQuestion > 4)) {
+
+            document.getElementById("prize").innerHTML = (`الف ريال سعودي فقط لا غير - 1,000`);
+
+        }
+        else {
+
+            switch (currentQuestion) {
+
+                case 0:
+                    document.getElementById("prize").innerHTML = (`حظ سعيد المرة القادمة`);
+                    break;
+                case 1:
+                    document.getElementById("prize").innerHTML = (`مائة ريال سعودي فقط لا غير - 100`);
+                    break;
+                case 2:
+                    document.getElementById("prize").innerHTML = (`مائتان ريال سعودي فقط لا غير - 200`);
+                    break;
+                case 3:
+                    document.getElementById("prize").innerHTML = (`ثلاث مائة ريال سعودي فقط لا غير - 300`);
+                    break;
+                case 4:
+                    document.getElementById("prize").innerHTML = (`خمس مائة ريال سعودي فقط لا غير - 500`);
+                    break;
+                default:
+                    document.getElementById("prize").innerHTML = (` مليون ريال سعودي فقط لا غير - 1,000,000`);
+                    break;
+            }
+        }
+
+    function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1].replace(/\+/g," "));
+        }
+    }
+    console.log('Query variable %s not found', variable);
+    }
+    </script>
+</body>
+
+</html>

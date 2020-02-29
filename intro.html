@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <title>Intro</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+        @font-face {
+            font-family: myFont;
+            src: url(A-Hayat.ttf);
+        }
+
+        body {
+            color: white;
+            font-family: myFont;
+            cursor: url("mouse.ico"), auto;
+        }
+
+        .algin 
+        {
+            text-align: right;
+        }
+
+        .btnM {
+            margin-top: 8%;
+        }
+
+        footer {
+            margin-top: 13%;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-top: 10px;
+            margin-left: 5px;
+            color: red;
+            text-align: center;
+        }
+
+        h1 {
+            padding: 5px;
+            text-align: center;
+            background-color: #0a0c18;
+        }
+
+        #about {
+            background-color: #0a0c18;
+            color: white;
+            border: solid 2px #4d0d8d;
+        }
+
+        #howTo {
+            background-color: #0a0c18;
+            color: white;
+            border: solid 2px #4d0d8d;
+        }
+
+        #login {
+            background-color: #0a0c18;
+            color: white;
+            border: solid 2px #4d0d8d;
+        }
+    </style>
+</head>
+
+<body style=" background-image:url(sources/image.jpeg);">
+    <section class="container-fluid">
+        <section class="row" style="height: 80%;">
+            <article class="offset-1"></article>
+            <article class="col-md-2 border-success">
+                <br />
+                <input id="login" class="btn btn-success btnM" data-toggle="modal" data-target="#v1" type="button"
+                    value="من هم مطورى اللعبة">
+                <br />
+                <input id="howTo" class="btn btn-success btnM" data-toggle="modal" data-target="#v2" type="button"
+                    value="       شروط اللعبة     ">
+                <br />
+                <br />
+            </article>
+            <article class="offset-2"></article>
+            <article class="col-6">
+                <br /><br />
+                <section class="modal" id="v1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <h1>مطورى اللعبة</h1>
+                            <ul>
+                                <li>احمد قرنى</li>
+                                <li>محمد عصام</li>
+                                <li>احمد رمضان</li>
+                            </ul>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" style="margin-right: 40%;"
+                                    data-dismiss="modal">اغلاق</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="modal" id="v2">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <h1>شروط المسابقة</h1>
+                            <ul class="list-group">
+                                <li class="">عليك اكمال كل مراحل اللعبة وعدم الخروج منها</li>
+                                <li class="">لك ان تستخدم اختيار حذف اجابتين مرة واحدة</li>
+                                <li class="">يمكنك الاستعانة برأى الجمهورة مرة واحدة</li>
+                            </ul>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" style="margin-right: 40%;"
+                                    data-dismiss="modal">اغلاق</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <form action="Game.html" method="GET" style="text-align: right;">
+                        <div>
+                            <label class="algin">ادخل اسمك</label>
+                        </div>
+                        <div>
+                            <input type="text"  name="playerName" class="form-control text-center" placeholder="اكتب اسمك"required />
+                        </div>
+                        <div>
+                            <input type="submit" id="login" value="ادخل اللعبة"
+                                class="btn btn-success btn-lg form-control btnM" />
+                        </div>
+
+                    </form>
+                </section>
+            </article>
+        </section>
+        <footer class="row">
+            <div class="offset-1"></div>
+            <div class="col-5">
+                <h2>من سيربح المليون؟</h2>
+                <h3>Sponserd by ITI Minia</h3>
+                <h3>&copy; Copyright 2020 </h3>
+            </div>
+        </footer>
+    </section>
+    <link rel="stylesheet" href="Scripts/html5shiv.min.js">
+    <link rel="stylesheet" href="Scripts/respond.min.js">
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/popper.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/custom.js"></script>
+</body>
+
+</html>
